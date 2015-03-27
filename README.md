@@ -1,6 +1,2 @@
 # Omeka_Plugin
-<?php //plugin.php file (admin page)
-
-
-
-?>
+This represents all the php code that constitutes my plugin.
