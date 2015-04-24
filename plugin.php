@@ -74,12 +74,12 @@ function hookviewforms($item)
    	 	foreach($rowassoc as $count => $record)
    	 	{ 
    	 		$content .= "<div id='dates'>";
-				$content .= "<a href='http://localhost/omeka-2.2.2/items/show/$pageid?&$record[id]'>";
+				$content .= "<a href=".absolute_url('items/show/'.$pageid.'?&'.$record['id']).">";
 				$content .= date('m/d/y',$record['time']);
 				$content .= "</a>&nbsp";
 				if (isset($_GET[$record['id']]))
 				{
-				$content.= "<a href='http://localhost/omeka-2.2.2/items/show/$pageid'>Close</a>";
+				$content.= "<a href=".absolute_url('items/show/'.$pageid).">Close</a>";
 				require_once "view_form.php";	
 				$content.= $disp;
     			}
