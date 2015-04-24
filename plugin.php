@@ -17,10 +17,10 @@ require_once 'login.php';
 
   $content = "<head><link rel='stylesheet' type='text/css' href='omeka_css.css'></head><body>";
    $content.= "<div>";
-   $content.= "<a href='http://localhost/omeka-2.2.2/admin/items/edit/$pageid?&new#condition-metadata'>New</a>&nbsp";
+   $content.= "<a href=".absolute_url('items/edit/'.$pageid.'?&new#condition-metadata').">New</a>";
    if (isset($_GET['new']))
    {
-   	$content.= "<a href='http://localhost/omeka-2.2.2/admin/items/edit/$pageid#condition-metadata'>Close</a>";
+   	$content.= "<a href=".absolute_url('items/edit/'.$pageid.'#condition-metadata').">Close</a>";
    	require_once "new_form.php";
    	$content .= $form;
    } 
@@ -34,12 +34,12 @@ require_once 'login.php';
    	 	
    	 	foreach($rowassoc as $count => $record){ 
    	 		$content .= "<div id='dates'>";
-				$content .= "<a href='http://localhost/omeka-2.2.2/admin/items/edit/$pageid?$record[id]#condition-metadata'>";
+				$content .= "<a href=".absolute_url('items/edit/'.$pageid.'?'.$record['id'].'#condition-metadata').">";
 				$content .= date('m/d/y',$record['time']);
-				$content .= "</a>&nbsp&nbsp<a href='http://localhost/omeka-2.2.2/admin/items/edit/$pageid?delete=".$record['id']."#condition-metadata'>Delete</a>";
+				$content .= "</a>&nbsp&nbsp<a href=".absolute_url('items/edit/'.$pageid.'?'.'delete='.$record['id'].'#condition-metadata').">Delete</a>";
 				if (isset($_GET[$record['id']]))
 				{
-				$content.= "&nbsp&nbsp<a href='http://localhost/omeka-2.2.2/admin/items/edit/$pageid#condition-metadata'>Close</a>";
+				$content.= "&nbsp&nbsp<a href=".absolute_url('items/edit/'.$pageid.'#condition-metadata').">Close</a>";
 				require_once "update_form.php";	
 				$content.= $disp;
     			 }
